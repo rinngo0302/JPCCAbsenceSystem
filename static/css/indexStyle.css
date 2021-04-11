@@ -36,12 +36,42 @@ header .title {
     color: #fff;
 }
 
-header img {
+header .forMobile {
+    margin-top: 70px;
+    pointer-events: none;
+}
+header .forPC {
+    display: none;
     margin-top: 70px;
     pointer-events: none;
 }
 
 
 @media (min-width: 900px) {
-    
+    /**************** header ****************/
+    header {
+        height: 750px;
+    }
+
+    header .title {
+        position: relative;
+        bottom: -50px;
+    }
+
+    header .forMobile {
+        display: none;
+    }
+    header .forPC {
+        display:block;
+        margin: auto;
+    }
+
+    header .btn {
+        margin-top: 0;
+
+        position: relative;
+        top: -100px;
+
+        /*text-shadowいる*/
+    }
 }
