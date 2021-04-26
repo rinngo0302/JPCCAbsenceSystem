@@ -1,0 +1,139 @@
+main {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #4c93ff;
+
+    height: 550px;
+}
+
+.title {
+    position: relative;
+    top: -100px;
+
+    padding-top: 70px;
+
+    text-align: center;
+
+    color: #fff;
+    font-size: 45px;
+}
+
+/**************** form ****************/
+form {
+    text-align: center;
+
+    position: relative;
+    top: -100px;
+}
+
+.username {
+    margin-bottom: 50px;
+
+    font-size: 20px;
+    
+    width: 200px;
+    height: 40px;
+
+    border-radius: 10px;
+    border: none;
+}
+.username:focus {
+    outline: none;
+}
+
+.password {
+    margin-bottom: 50px;
+
+    font-size: 20px;
+    
+    width: 200px;
+    height: 40px;
+    
+    border: none;
+    border-radius: 10px;
+}
+.password:focus {
+    outline: none;
+}
+
+.send {
+    width: 150px;
+    height: 40px;
+
+    border-radius: 10px;
+    border: none;
+
+    background: #fff;
+    color: #4c93ff;
+    font-size: 17px;
+    font-weight: bold;
+
+    transition: 0.3s opacity;
+
+    cursor: pointer;
+}
+.send:hover {
+    opacity: 0.7;
+}
+.send:focus {
+    outline: none;
+}
+
+.pic_text {
+    display: block;
+
+    position: relative;
+    top: 70px;
+    /* right: 70px; */
+
+    margin-left: calc(100% - 100px);
+
+    pointer-events: none;
+}
+
+.pic_mouse {
+    display: block;
+
+    position: relative;
+    top: -100px;
+    left: 20px;
+
+    pointer-events: none;
+}
+
+.pic_forPC {
+    display: none;
+
+    pointer-events: none;
+}
+
+@media (min-width: 900px) {
+    /* 画像削除 */
+    .pic_mouse {
+        display: none;
+    }
+    .pic_text {
+        display: none;
+    }
+    /* 画像表示 */
+    .pic_forPC {
+        display: block;
+
+        width: 300px;
+        height: 300px;
+
+        margin-left: 200px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+
+    main {/* flexに設定 */
+        display: flex;
+    }
+
+    .content {
+        margin-top: 50px;
+        margin-left: 30%;
+    }
+}
