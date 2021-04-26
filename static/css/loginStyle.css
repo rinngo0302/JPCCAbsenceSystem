@@ -87,6 +87,8 @@ form {
     /* right: 70px; */
 
     margin-left: calc(100% - 100px);
+
+    pointer-events: none;
 }
 
 .pic_mouse {
@@ -95,8 +97,43 @@ form {
     position: relative;
     top: -100px;
     left: 20px;
+
+    pointer-events: none;
 }
 
-@media (width-min: 900px) {
-    
+.pic_forPC {
+    display: none;
+
+    pointer-events: none;
+}
+
+@media (min-width: 900px) {
+    /* 画像削除 */
+    .pic_mouse {
+        display: none;
+    }
+    .pic_text {
+        display: none;
+    }
+    /* 画像表示 */
+    .pic_forPC {
+        display: block;
+
+        width: 300px;
+        height: 300px;
+
+        margin-left: 200px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+
+    main {/* flexに設定 */
+        display: flex;
+    }
+
+    .content {
+        margin-top: 50px;
+        margin-left: 30%;
+    }
 }
