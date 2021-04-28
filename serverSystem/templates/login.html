@@ -4,8 +4,8 @@
     <head>
         <meta charset="utf-8">
         <title>Jhonouchi PC Club | ログイン</title>
-        <link rel="stylesheet" href="static/css/allStyle.css">
-        <link rel="stylesheet" href="static/css/loginStyle.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/allStyle.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/loginStyle.css')}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
@@ -15,9 +15,9 @@
             <section class="content">
                 <p class="title"> ログイン </p>
                 
-                <form method="POST" action="/login">
-                    <input type="text" class="username" placeholder="ユーザー名..."> <br>
-                    <input type="text" class="password" placeholder="パスワード..."> <br>
+                <form method="POST" action="/login/home">
+                    <input type="text" class="username" placeholder="ユーザー名..." name="name"> <br>
+                    <input type="text" class="password" placeholder="パスワード..." name="pass"> <br>
                     <input type="submit" class="send" value="承認">
                 </form>
             </section>

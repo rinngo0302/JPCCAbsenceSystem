@@ -25,6 +25,14 @@
 <h2>開発履歴</h2>
 
 <dl>
+    <dt> 2021/04/28 18:40 </dt>
+    <dd>
+        ログインのシステム 完成
+    </dd>
+    <dt> 2021/04/27 18:03 </dt>
+    <dd>
+        login_error.html 完成
+    </dd>
     <dt> 2021/04/26 12:46 </dt>
     <dd>
         Pythonの仮想環境 serverSystem 生成
