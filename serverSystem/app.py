@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import sqlite3
+from user import User
 
 app = Flask(__name__)
 
@@ -14,16 +15,17 @@ def login():
 @app.route('/login/home', methods=["GET", "POST"])  # home.html or login_error.html
 def home():
     if request.method == "POST": # POST受信
-        username = request.form["name"]
-        password = request.form["pass"]
-        if checkUser(username, password):
-            return "{0} さん、お帰りなさい".format(username)
+        user = User
+        user.username = request.form["name"]
+        user.password = request.form["pass"]
+        if checkUser(user.username, user.password):
+            return "{0} さん、お帰りなさい".format(user.username)
         else:
             return render_template("login_error.html")
     else:
         return "ERROR"
 
-def checkUser(name, password):
+def checkUser(name, password): # データベースに接続し、そのユーザーがいるかを確認する
     conn = sqlite3.connect("Data/DataBase/user.db")
     cur = conn.cursor()
 
