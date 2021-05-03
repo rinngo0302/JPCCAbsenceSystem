@@ -2,7 +2,6 @@ main {
     background: #4c93ff;
     
     height: 600px
-
 }
 
 .hello {
@@ -68,7 +67,7 @@ form {
 
     text-align: center;
 
-    width: 250px;
+    width: 270px;
     line-height: 35px;
 
     background: #fffb00;
@@ -86,7 +85,7 @@ form {
         text-indent: 100%;
         white-space: nowrap;
     }
-    90% {
+    80% {
         opacity: 1;
         width: 250px;
         overflow: hidden;
@@ -127,6 +126,10 @@ form {
 }
 
 @media (min-width: 900px) {
+    main {
+        height: 700px;
+    }
+
     .hello {
         font-size: 30px;
         margin-left: 100px;

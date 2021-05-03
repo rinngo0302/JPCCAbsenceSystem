@@ -6,14 +6,13 @@
         <title> Jhonouchi PC Club | ホーム</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/allStyle.css')}}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/homeStyle.css')}}">
-        <script src="static/js/showDate.js"></script>
-        <script src=""></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-
+    
     <body>
+        <script src="{{ url_for('static', filename='js/showDate.js')}}"></script>
         <main>
-            <p class="hello"> 太郎 さん、おかえりなさい。</p>
+            <p class="hello"> {{ username }} さん、おかえりなさい。</p>
             <form>
                 <input class="attend" type="button" value="出席" onclick="showDate()">
             </form>

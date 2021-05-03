@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import sqlite3
+import jinja2
 from user import User
 
 app = Flask(__name__)
@@ -19,7 +20,8 @@ def home():
         user.username = request.form["name"]
         user.password = request.form["pass"]
         if checkUser(user.username, user.password):
-            return "{0} さん、お帰りなさい".format(user.username)
+            return render_template("home.html", \
+                username = user.username)
         else:
             return render_template("login_error.html")
     else:
