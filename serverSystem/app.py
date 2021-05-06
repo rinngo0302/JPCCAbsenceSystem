@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request
 import sqlite3
 import jinja2
+
 from user import User
+from dataBase import checkUser, addDBData
 
 app = Flask(__name__)
 
@@ -16,33 +18,27 @@ def login():
 @app.route('/login/home', methods=["GET", "POST"])  # home.html or login_error.html
 def home():
     if request.method == "POST": # POST受信
-        user = User
-        user.username = request.form["name"]
-        user.password = request.form["pass"]
-        if checkUser(user.username, user.password):
+        user = checkUser(request.form["name"], request.form["pass"])
+        
+        if user != False:
+            print("id: {0}\nname: {1}\npassword: {2}".format(user.id, user.name, user.password))
             return render_template("home.html", \
-                username = user.username)
+                username = user.name, \
+                userid = user.id)
         else:
             return render_template("login_error.html")
     else:
         return "ERROR"
 
-def checkUser(name, password): # データベースに接続し、そのユーザーがいるかを確認する
-    conn = sqlite3.connect("Data/DataBase/user.db")
-    cur = conn.cursor()
-
-    cur.execute('select * from userList where name="{0}" and password="{1}"'.format(name, password))
-    items = cur.fetchall()
-    print("All Data: {0}".format(items))
-
-    if items == []:
-        print("要素はありませんでした")
-        return False
+@app.route('/login/home/addDBDate', methods=["GET"])
+def addData():
+    if request.method == "GET":
+        userid = request.args["userid"]
+        fullYear = request.args["fullYear"]
+        month = request.args["month"]
+        date = request.args["date"]
+        print("{0}/{1}/{2}".format(fullYear, month, date))
+        addDBData(userid, fullYear, month, date)
+        return "succeed"
     else:
-        for i in range(len(items)):
-            if (items[i][0] != None):
-                id = items[i][0]
-                name = items[i][1]
-                password = items[i][2]
-                print("id: {0}\nname: {1}\npassword: {2}".format(id, name, password))
-                return True
+        return "ERROR"

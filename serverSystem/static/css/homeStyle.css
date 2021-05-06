@@ -59,8 +59,6 @@ form {
 }
 
 .money {
-    display: block;
-
     margin-left: auto;
     margin-right: auto;
     margin-top: 60px;
@@ -74,7 +72,7 @@ form {
     font-size: 17px;
     border-radius: 10px;
 
-    animation: money 2s;
+    animation: money 2s forwards;
 
 }
 @keyframes money {
@@ -94,7 +92,6 @@ form {
     }
     100% {
         overflow: hidden;
-
     }
 }
 
@@ -125,6 +122,39 @@ form {
     opacity: 0.7;
 }
 
+.showUserData {
+    width: 300px;
+    padding: 8px;
+    background: #2c2c2c;
+    color: #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+
+    animation: showUserData 2s forwards;  
+    
+}
+@keyframes showUserData {
+    0% {
+        transform: translateY(20px);
+        animation-timing-function: ease-out;
+        opacity: 0;
+    }
+    20%, 80% {
+        transform: none;
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(20px);
+        opacity: 0;
+
+        pointer-events: none;
+    }
+}
+
 @media (min-width: 900px) {
     main {
         height: 700px;
@@ -146,7 +176,8 @@ form {
         
         position: relative;
         top: -200px;
-        right: -10px;
+
+        border-radius: 10px 0 0 10px
     }
 
     .lastDate {
