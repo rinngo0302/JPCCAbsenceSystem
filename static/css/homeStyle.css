@@ -1,0 +1,188 @@
+main {
+    background: #4c93ff;
+    
+    height: 600px
+}
+
+.hello {
+    display: block;
+
+    text-align: left;
+    
+    color: #fff;
+    font-weight: bold;
+    font-size: 25px;
+
+    padding-left: 10px;
+    padding-top: 30px;
+}
+
+form {
+    text-align: center;
+}
+
+.attend {
+    text-align: center;
+
+    margin-top: 70px;
+
+    width: 210px;
+    height: 120px;
+
+    border-radius: 40px;
+    border: none;
+
+    background: #fff;
+    color: #4c93ff;
+    font-size: 45px;
+    font-weight: bold;
+
+    transition: 0.3s opacity;
+
+    cursor: pointer;
+}
+.attend:hover {
+    opacity: 0.7;
+}
+.attend:focus {
+    outline: none;
+}
+
+.lastDate {
+    text-align: center;
+
+    margin-top: 50px;
+
+    color: #fff;
+    font-size: 20px;
+
+}
+
+.money {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+
+    text-align: center;
+
+    width: 270px;
+    line-height: 35px;
+
+    background: #fffb00;
+    font-size: 17px;
+    border-radius: 10px;
+
+    animation: money 2s forwards;
+
+}
+@keyframes money {
+    0% {
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
+    }
+    80% {
+        opacity: 1;
+        width: 250px;
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
+    }
+    100% {
+        overflow: hidden;
+    }
+}
+
+.linkDiscord {
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+
+    text-align: center;
+
+    color: #4c93ff;
+    font-size: 20px;
+    font-weight: bold;
+
+    background: #fff;
+    width: 170px;
+    line-height: 50px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    transition: opacity 0.3s;
+}
+.linkDiscord:hover {
+    opacity: 0.7;
+}
+
+.showUserData {
+    width: 300px;
+    padding: 8px;
+    background: #2c2c2c;
+    color: #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+
+    animation: showUserData 2s forwards;  
+    
+}
+@keyframes showUserData {
+    0% {
+        transform: translateY(20px);
+        animation-timing-function: ease-out;
+        opacity: 0;
+    }
+    20%, 80% {
+        transform: none;
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(20px);
+        opacity: 0;
+
+        pointer-events: none;
+    }
+}
+
+@media (min-width: 900px) {
+    main {
+        height: 700px;
+    }
+
+    .hello {
+        font-size: 30px;
+        margin-left: 100px;
+        padding-top: 50px;
+    }
+
+    .attend {
+        position: relative;
+        top: 50px;
+    }
+
+    .money {
+        margin-right: 0;
+        
+        position: relative;
+        top: -200px;
+        /* right: -10px; */
+
+        border-radius: 10px 0 0 10px
+    }
+
+    .lastDate {
+        position: relative;
+        top: 70px;
+    }
+}

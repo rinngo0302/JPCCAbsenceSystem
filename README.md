@@ -19,12 +19,19 @@
     <li>Python - Flask</li>
     <li>Python - jinja</li>
     <li>Python - SQLite</li>
+    <li>JavaScript</li>
+    <li>JavaScript - jQuery</li>
 </ul>
 <br>
 
 <h2>開発履歴</h2>
 
 <dl>
+    <dt> 2021/05/06 20:02 </dt>
+    <dd>
+        「出席」を押すと、データベースにユーザーのデータを挿入するシステム 完成
+            JSのjQueryで、DateをGET送信し、それを取得する。
+    </dd>
     <dt> 2021/05/03 05:03 </dt>
     <dd>
         ログインした後のシステム 完成

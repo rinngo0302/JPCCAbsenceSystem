@@ -4,8 +4,8 @@
     <head>
         <meta charset="utf-8">
         <title> Jhonouchi PC Club | ホーム</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/allStyle.css')}}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/homeStyle.css')}}">
+        <link rel="stylesheet" href="static/css/allStyle.css">
+        <link rel="stylesheet" href="static/css/homeStyle.css">
         <script src="static/js/showDate.js"></script>
         <script src=""></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,9 +18,11 @@
                 <input class="attend" type="button" value="出席" onclick="showDate()">
             </form>
             <p class="lastDate"> 前回: 2021/04/29 </p>
-            <p class="money"> 部費が未払いです!</p>
+            <div class="money"> 部費が未払いです!</div>
 
             <a class="linkDiscord" href="https://discord.gg/sjNmsgGR" target="_blank"> Discord </a>
+
+            <div class="showUserData"> ID: 2  ユーザー名: 太郎</div>
         </main>
     </body>
 </html>
