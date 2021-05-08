@@ -3,7 +3,8 @@ import sqlite3
 import jinja2
 
 from user import User
-from dataBase import checkUser, addDBData
+from dataBase import checkUser, addDBData, getLastDate, getHasPaidMoney
+from date import Date
 
 app = Flask(__name__)
 
@@ -22,22 +23,29 @@ def home():
         
         if user != False:
             print("id: {0}\nname: {1}\npassword: {2}".format(user.id, user.name, user.password))
+            date = getLastDate(user.id)
+
+            hasPaidMoney = getHasPaidMoney(user.id)
+
             return render_template("home.html", \
                 username = user.name, \
-                userid = user.id)
+                userid = user.id, \
+                lastFullYear = date.fullYear, \
+                lastMonth = date.month, \
+                lastDate = date.date, \
+                hasPaidMoney = hasPaidMoney)
         else:
             return render_template("login_error.html")
     else:
         return "ERROR"
 
-@app.route('/login/home/addDBDate', methods=["GET"])
+@app.route('/login/home/addDBDate', methods=["GET"]) # GET送信を受信
 def addData():
     if request.method == "GET":
         userid = request.args["userid"]
         fullYear = request.args["fullYear"]
         month = request.args["month"]
         date = request.args["date"]
-        print("{0}/{1}/{2}".format(fullYear, month, date))
         addDBData(userid, fullYear, month, date)
         return "succeed"
     else:

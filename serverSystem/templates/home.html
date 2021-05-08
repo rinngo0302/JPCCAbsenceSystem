@@ -31,12 +31,17 @@
             <form>
                 <input type="button" id="attend" class="attend" value="出席">
             </form>
-            <p class="lastDate"> 前回: 2021/04/29 </p>
-            <p class="money"> 部費が未払いです!</p>
+            <p class="lastDate"> 前回: {{ lastFullYear }}/{{ lastMonth }}/{{ lastDate }} </p>
+            
+            {% if hasPaidMoney == 0 %}
+                <p class="money"> 部費が未払いです!</p>
+            {% else %}
+                <p class="money"></p>
+            {% endif %}
 
             <a class="linkDiscord" href="https://discord.gg/sjNmsgGR" target="_blank"> Discord </a>
 
-            <div class="showUserData"> ID: {{ userid }}/ユーザー名: {{ username }}</div>
+            <div class="showUserData"> ID: {{ userid }} &nbsp;&nbsp;&nbsp; ユーザー名: {{ username }}</div>
         </main>
     </body>
 </html>

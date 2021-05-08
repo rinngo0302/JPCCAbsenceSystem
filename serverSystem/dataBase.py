@@ -3,6 +3,7 @@ from flask import request
 import os
 
 from user import User
+from date import Date
 
 def checkUser(name, password): # データベースに接続し、そのユーザーがいるかを確認する
     conn = sqlite3.connect("Data/DataBase/user.db")
@@ -38,13 +39,44 @@ def makeDB(id):
     conn.close()
     file.close()
 
-def addDBData(id, fullYear, month, date):
-    conn = sqlite3.connect("Data/DataBase/userAttendedDate/{0}.db".format(id))
+def addDBData(userid, fullYear, month, date):
+    conn = sqlite3.connect("Data/DataBase/userAttendedDate/{0}.db".format(userid))
     cur = conn.cursor()
 
     cur.execute('insert into attendedDate (fullYear, month, date) values ({0}, {1}, {2});'.format(fullYear, month, date))
-    print('insert into attendedDate (fullYear, month, date) values ({0}, {1}, {2})'.format(fullYear, month, date))
     
     conn.commit()
     conn.close()
 
+def getLastDate(userid): # 前回のデータを取得
+    conn = sqlite3.connect("Data/DataBase/userAttendedDate/{0}.db".format(userid))
+    cur = conn.cursor()
+
+    cur.execute("SELECT * FROM attendedDate WHERE ROWID IN ( SELECT max( ROWID ) FROM attendedDate );")
+    item = cur.fetchall()
+
+    if item == []:
+        print("過去のデータはありませんでした。")
+        return False
+    else:
+        FULL_YEAR = 0
+        MONTH = 1
+        DATE = 2
+        print(item[0][0])
+        print(item[0][1])
+        print(item[0][2])
+        
+        date = Date(item[0][FULL_YEAR], item[0][MONTH], item[0][DATE])
+
+        return date
+
+def getHasPaidMoney(userid):
+    conn = sqlite3.connect("Data/DataBase/money.db")
+    cur = conn.cursor()
+
+    cur.execute("select * from money")
+    item = cur.fetchall()
+
+    hasPaidMoney = item[int(userid - 2)][1]
+
+    return hasPaidMoney
