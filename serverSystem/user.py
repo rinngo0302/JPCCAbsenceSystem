@@ -4,3 +4,4 @@ class User:
         self.id = -1
         self.username = "default"
         self.password = "default"
+        self.category = "default"

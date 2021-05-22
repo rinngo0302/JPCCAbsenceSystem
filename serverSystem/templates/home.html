@@ -9,6 +9,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/jpccicon.png')}}">
+
         <script>
             $(function()
             {
@@ -28,6 +30,29 @@
     <body>
         <main>
             <p class="hello"> {{ username }} さん、おかえりなさい。</p>
+
+            {% if category == "program" %}
+                <img class="category" src="{{ url_for('static', filename='img/category/program.png')}}" width="400">                  
+            {% endif %}
+            {% if category == "movie" %}
+                <img class="category" src="{{ url_for('static', filename='img/category/movie.png')}}" width="400">                  
+            {% endif %}
+            {% if category == "illustration" %}
+                <img class="category" src="{{ url_for('static', filename='img/category/illustration.png')}}" width="400">                  
+            {% endif %}
+            {% if category == "music" %}
+                <img class="category" src="{{ url_for('static', filename='img/category/music.png')}}" width="400">                  
+            {% endif %}
+            {% if category == "rpg" %}
+                <img class="category" src="{{ url_for('static', filename='img/category/rpg.png')}}" width="400">                  
+            {% endif %}
+            {% if category == "hard" %}
+                <img class="category" src="{{ url_for('static', filename='img/category/hard.png')}}" width="400">                  
+            {% endif %}
+            {% if category == "hard" %}
+                <img class="category" src="{{ url_for('static', filename='img/category/hard.png')}}" width="400">                  
+            {% endif %}
+
             <form>
                 <input type="button" id="attend" class="attend" value="出席">
             </form>
@@ -41,7 +66,7 @@
 
             <a class="linkDiscord" href="https://discord.gg/sjNmsgGR" target="_blank"> Discord </a>
 
-            <div class="showUserData"> ID: {{ userid }} &nbsp;&nbsp;&nbsp; ユーザー名: {{ username }}</div>
+            <div class="showUserData"> ID：{{ userid }} ｜ &nbsp;&nbsp;&nbsp; ユーザー名：{{ username }}</div>
         </main>
     </body>
 </html>

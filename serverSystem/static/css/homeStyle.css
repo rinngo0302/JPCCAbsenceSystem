@@ -17,6 +17,10 @@ main {
     padding-top: 30px;
 }
 
+.category {
+    display: none;
+}
+
 form {
     text-align: center;
 }
@@ -166,6 +170,15 @@ form {
         padding-top: 50px;
     }
 
+    .category {
+        display: block;
+        position: absolute;
+        bottom: 250px;
+        right: 65%;
+    
+        pointer-events: none;
+    }
+
     .attend {
         position: relative;
         top: 50px;
@@ -176,6 +189,7 @@ form {
         
         position: relative;
         top: -200px;
+        /* right: -10px; */
 
         border-radius: 10px 0 0 10px
     }

@@ -24,7 +24,8 @@ def checkUser(name, password): # データベースに接続し、そのユー�
                 user.id = items[i][0]
                 user.name = items[i][1]
                 user.password = items[i][2]
-                print("id: {0}\nname: {1}\npassword: {2}".format(user.id, user.name, user.password))
+                user.category = items[i][3]
+                print("id: {0}\nname: {1}\npassword: {2}\ncategory: {3}".format(user.id, user.name, user.password, user.category))
                 return user
 
 def makeDB(id):

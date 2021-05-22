@@ -30,6 +30,7 @@ def home():
             return render_template("home.html", \
                 username = user.name, \
                 userid = user.id, \
+                category = user.category, \
                 lastFullYear = date.fullYear, \
                 lastMonth = date.month, \
                 lastDate = date.date, \

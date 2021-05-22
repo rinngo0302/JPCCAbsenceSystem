@@ -17,6 +17,10 @@ main {
     padding-top: 30px;
 }
 
+.category {
+    display: none;
+}
+
 form {
     text-align: center;
 }
@@ -164,6 +168,15 @@ form {
         font-size: 30px;
         margin-left: 100px;
         padding-top: 50px;
+    }
+
+    .category {
+        display: block;
+        position: absolute;
+        bottom: 250px;
+        right: 65%;
+    
+        pointer-events: none;
     }
 
     .attend {
